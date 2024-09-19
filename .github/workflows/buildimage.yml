@@ -1,0 +1,26 @@
+name: Build Docker image
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+  pull_request:
+permissions:
+  pull-requests: write
+  contents: write
+  packages: write
+jobs:
+  review:
+    if: ${{ github.event_name == 'pull_request' }}
+    uses: xander-rudolph/.github/.github/workflows/ollama-pr.yml@main
+
+  docker-build:
+    if: ${{ github.event_name != 'pull_request' }}
+    uses: xander-rudolph/.github/.github/workflows/docker-publish.yml@main
+    with:
+      image_name: azuretunnel
+      # optional
+      working_dir: .
+      trigger_release: ${{ github.ref_name == 'main' }}
+      gitversion: true
+    secrets: inherit
