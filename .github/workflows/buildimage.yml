@@ -6,6 +6,8 @@ on:
   pull_request:
 permissions:
   pull-requests: write
+  contents: write
+  packages: write
 jobs:
   review:
     if: ${{ github.event_name == 'pull_request' }}
