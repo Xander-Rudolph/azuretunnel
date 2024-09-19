@@ -1,12 +1,11 @@
-# Use the latest Azure CLI alpine based image
-FROM mcr.microsoft.com/azure-cli 
+FROM mcr.microsoft.com/azure-cli
 
-# Install required tools using apk
-RUN apk update && apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     net-tools \
     jq \
-    openssh-client
-
+    openssh-client && \
+    rm -rf /var/lib/apt/lists/*
+    
 # Install aks tools
 RUN az aks install-cli
 # when querying bastion another extension is required
