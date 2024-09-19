@@ -28,6 +28,7 @@ ENV AZURE_CLIENT_ID=""
 ENV AZURE_TENANT_ID=""
 ENV AZURE_CLIENT_SECRET=""
 ENV SUBSCRIPTION_ID=""
+ENV USER=""
 
 EXPOSE ${PORT} ${ROUTING_PORT}
 # Set the entrypoint script to run when the container starts
