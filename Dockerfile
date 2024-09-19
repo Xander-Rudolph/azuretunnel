@@ -1,5 +1,14 @@
 FROM mcr.microsoft.com/azure-cli:latest
 
+# Add labels to link to GitHub repo
+LABEL org.opencontainers.image.title="azuretunnel"
+LABEL org.opencontainers.image.description="Image to tunnel through a bastion host to create a network tunnel to private aks clusters"
+LABEL org.opencontainers.image.authors="Alex Rudolph"
+LABEL org.opencontainers.image.url="https://github.com/Xander-Rudolph/azuretunnel"
+LABEL org.opencontainers.image.source="https://github.com/Xander-Rudolph/azuretunnel"
+LABEL org.opencontainers.image.documentation="https://github.com/Xander-Rudolph/azuretunnel#readme"
+LABEL org.opencontainers.image.licenses="Apache2.0"
+
 # Install necessary packages
 RUN yum update -y && yum install -y \
     net-tools \
