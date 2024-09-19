@@ -1,5 +1,6 @@
-FROM mcr.microsoft.com/azure-cli
+FROM mcr.microsoft.com/azure-cli:2.50.0-ubuntu-20.04
 
+# Install necessary packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     net-tools \
     jq \
